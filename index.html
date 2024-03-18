@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om Nagare's Portfolio</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .card {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .card img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #555;
+  }
+
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Om Nagare's Portfolio</h1>
+</header>
+<div class="container">
+  <div class="card">
+    <img src="CICD.jpeg" alt="Project 1">
+    <div class="card-content">
+      <h2>CICD Pipeline Project</h2>
+      <p>Implemented a CICD pipeline using Jenkins, GitHub, and Docker to automate the build, test, and deployment process.</p>
+      <button class="btn" onclick="openModal('modal1')">View Project</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="terraform.png" alt="Project 2">
+    <div class="card-content">
+      <h2>Terraform Deployment using S3</h2>
+      <p>Utilized Terraform to provision infrastructure on AWS and deployed a web application to an S3 bucket.</p>
+      <button class="btn" onclick="openModal('modal2')">View Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for CICD Pipeline Project -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h2>CICD Pipeline Project Details</h2>
+    <p>Approach for building a robust CI/CD pipeline for our Java application project!
+
+
+        🔗 Continuous Integration (CI):
+        - Developers push code to Git, triggering Jenkins pipeline.
+        - Jenkins builds the project using Maven, running unit tests.
+        - If successful, the code is analyzed for quality using SonarQube.
+        - Email notifications are sent for build and quality check results.
+        
+        📦 Continuous Delivery (CD):
+        - Docker images are built and pushed to Docker Hub.
+        - GitOps tool Argo Image Updater watches for new images and updates the Git repository.
+        - Argo CD monitors the repository and updates the Kubernetes cluster accordingly.
+        
+        🔍 Key Features:
+        - Version control with Git for collaboration and history tracking.
+        - Jenkins pipeline as code for automated builds.
+        - Docker for containerization, ensuring consistency across environments.
+        - Automated code quality checks with SonarQube.
+        - Argo CD for GitOps-based continuous delivery to Kubernetes.
+        
+        Our CI/CD pipeline has significantly improved our development process, enabling faster delivery of high-quality software.</p>
+  </div>
+</div>
+
+<!-- Modal for Terraform Deployment Project -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h2>Terraform Deployment Project Details</h2>
+    <p>This is the detailed description of the Terraform Deployment project.
+        In this Project i writed a Terraform script for automating the infrastructure of aws  using S3 bucket i deployed the static
+        Portfolio website
+    </p>
+  </div>
+</div>
+
+<script>
+  function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+  }
+
+  function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target.className === 'modal') {
+      event.target.style.display = 'none';
+    }
+  };
+</script>
+</body>
+</html>
